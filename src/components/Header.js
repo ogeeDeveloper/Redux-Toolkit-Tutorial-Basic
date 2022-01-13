@@ -1,9 +1,9 @@
 import classes from './Header.module.css';
 import {useSelector, useDispatch} from 'react-redux'
-import {authAction} from '../store/index'
+import {authAction} from '../store/authentication-slice'
 
 const Header = () => {
-  const showNavItem=useSelector(state => state.auth)
+  const isAuth =useSelector(state => state.auth)
 
   const dispatch = useDispatch()
 
@@ -13,7 +13,7 @@ const Header = () => {
   return (
     <header className={classes.header}>
       <h1>Redux Auth</h1>
-      {showNavItem &&
+      {isAuth &&
       <nav>
          <ul>
           <li>
